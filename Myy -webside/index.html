@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Akash Studio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#080d18;
+    color:white;
+    line-height:1.5;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,input,textarea,select{
+    font-family:inherit;
+}
+
+/* HEADER */
+
+header{
+    height:64px;
+    background:#111827;
+    border-bottom:1px solid #263244;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 3%;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    color:#00ed83;
+    font-size:22px;
+    font-weight:bold;
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    color:#e5e7eb;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#00ed83;
+}
+
+/* HERO */
+
+.hero{
+    min-height:455px;
+    text-align:center;
+    padding:55px 20px;
+    position:relative;
+
+    background:
+    radial-gradient(
+        circle at 50% 0%,
+        #063d2f 0%,
+        #080d18 60%
+    );
+}
+
+.demo-button{
+    position:absolute;
+    right:18px;
+    top:18px;
+
+    border:0;
+    border-radius:25px;
+
+    background:#f0000c;
+    color:white;
+
+    padding:13px 22px;
+
+    font-weight:bold;
+    cursor:pointer;
+
+    box-shadow:0 0 20px rgba(255,0,0,.25);
+}
+
+.hero h1{
+    max-width:1000px;
+    margin:55px auto 20px;
+
+    font-size:52px;
+    line-height:1.12;
+}
+
+.hero p{
+    max-width:850px;
+    margin:auto;
+
+    color:#96a3b8;
+    font-size:18px;
+}
+
+.hero-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+
+    gap:14px;
+    margin-top:30px;
+}
+
+.btn{
+    border:0;
+    border-radius:7px;
+
+    padding:14px 25px;
+
+    font-weight:bold;
+    color:white;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.1);
+}
+
+.green{
+    background:#00e982;
+    color:#001a0d;
+}
+
+.red{
+    background:#f0000c;
+}
+
+.blue{
+    background:#3439c2;
+}
+
+.orange{
+    background:#ff8a00;
+}
+
+/* SECTIONS */
+
+section{
+    max-width:1200px;
+    margin:auto;
+    padding:60px 25px;
+}
+
+.section-title{
+    text-align:center;
+    font-size:30px;
+    margin-bottom:38px;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+}
+
+.service-card{
+    background:#111723;
+    border:1px solid #273246;
+
+    border-radius:10px;
+
+    padding:35px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.service-card:hover{
+    border-color:#00e982;
+    transform:translateY(-3px);
+}
+
+.service-icon{
+    font-size:40px;
+    color:#00e982;
+    margin-bottom:10px;
+}
+
+.service-card h3{
+    margin-bottom:8px;
+}
+
+.service-card p{
+    color:#8e99aa;
+    font-size:13px;
+}
+
+/* OFFER */
+
+.offer-container{
+    padding:10px 20px 25px;
+}
+
+.offer{
+    max-width:760px;
+    margin:auto;
+
+    text-align:center;
+
+    padding:10px;
+
+    border-radius:25px;
+
+    background:#063228;
+    border:1px solid #09815f;
+
+    color:#00e982;
+
+    font-size:13px;
+}
+
+/* STORE */
+
+.search-box{
+    max-width:500px;
+    margin:0 auto 25px;
+}
+
+.search-box input{
+    width:100%;
+
+    background:#111827;
+    border:1px solid #2a3548;
+
+    color:white;
+
+    padding:13px 18px;
+
+    border-radius:25px;
+
+    outline:none;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.product-card{
+    background:#111723;
+    border:1px solid #273246;
+
+    border-radius:10px;
+
+    padding:16px;
+}
+
+.product-image{
+    width:100%;
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:7px;
+
+    background:#0d1420;
+}
+
+.product-placeholder{
+    width:100%;
+    height:180px;
+
+    border-radius:7px;
+
+    background:#0d1420;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:55px;
+}
+
+.product-card h3{
+    margin-top:14px;
+    margin-bottom:7px;
+
+    font-size:17px;
+}
+
+.product-card p{
+    color:#8d98aa;
+    font-size:13px;
+
+    min-height:40px;
+}
+
+.buy-button{
+    display:inline-block;
+
+    margin-top:14px;
+
+    padding:10px 16px;
+
+    background:#00e982;
+    color:#001a0d;
+
+    border-radius:6px;
+
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* HIRE FORM */
+
+.form-box{
+    max-width:650px;
+    margin:auto;
+
+    background:#111723;
+    border:1px solid #273246;
+
+    border-radius:10px;
+
+    padding:25px;
+}
+
+label{
+    display:block;
+
+    color:#c9ced8;
+
+    font-size:12px;
+
+    margin-bottom:15px;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+
+    margin-top:6px;
+
+    padding:12px;
+
+    background:#121a29;
+
+    border:1px solid #2a3548;
+
+    border-radius:6px;
+
+    color:white;
+
+    outline:none;
+}
+
+textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+.full-button{
+    width:100%;
+}
+
+.status{
+    text-align:center;
+
+    color:#00e982;
+
+    font-size:12px;
+
+    margin-top:12px;
+}
+
+/* REVIEWS */
+
+.reviews{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+
+    gap:18px;
+}
+
+.review{
+    background:#111723;
+
+    border:1px solid #273246;
+
+    border-radius:10px;
+
+    padding:20px;
+}
+
+.review-top{
+    display:flex;
+    justify-content:space-between;
+
+    gap:10px;
+}
+
+.stars{
+    color:#ffd21a;
+}
+
+.review-text{
+    color:#929caf;
+
+    font-size:13px;
+
+    margin-top:8px;
+}
+
+/* UPI */
+
+.upi-box{
+    max-width:350px;
+
+    margin:auto;
+
+    text-align:center;
+
+    background:#111723;
+
+    border:1px solid #273246;
+
+    border-radius:10px;
+
+    padding:25px;
+}
+
+.upi-box h2{
+    font-size:21px;
+
+    margin-bottom:15px;
+}
+
+.upi-image{
+    width:210px;
+    height:210px;
+
+    object-fit:contain;
+
+    background:white;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+.upi-box p{
+    color:#8994a6;
+
+    font-size:12px;
+
+    margin-top:12px;
+}
+
+.email{
+    color:#00e982;
+}
+
+/* MODAL */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.88);
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    z-index:999;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-content{
+    width:100%;
+    max-width:850px;
+
+    background:#111723;
+
+    border:1px solid #2b374b;
+
+    border-radius:10px;
+
+    padding:25px;
+
+    text-align:center;
+
+    position:relative;
+}
+
+.close{
+    position:absolute;
+
+    right:10px;
+    top:4px;
+
+    border:0;
+
+    background:none;
+
+    color:white;
+
+    font-size:32px;
+
+    cursor:pointer;
+}
+
+.demo-video{
+    width:100%;
+
+    max-height:70vh;
+
+    margin-top:15px;
+
+    background:#000;
+}
+
+.modal-qr{
+    width:320px;
+    max-width:90%;
+
+    background:white;
+
+    padding:12px;
+
+    border-radius:8px;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #182131;
+
+    text-align:center;
+
+    color:#687386;
+
+    padding:28px;
+
+    font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    header{
+        height:auto;
+
+        padding:15px;
+
+        gap:15px;
+
+        align-items:flex-start;
+    }
+
+    nav{
+        gap:12px;
+
+        flex-wrap:wrap;
+
+        justify-content:flex-end;
+    }
+
+    nav a{
+        font-size:10px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .demo-button{
+        position:static;
+
+        margin-bottom:15px;
+    }
+
+    .services,
+    .products,
+    .reviews{
+        grid-template-columns:1fr;
+    }
+
+    section{
+        padding:45px 15px;
+    }
+
+    .section-title{
+        font-size:25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<a href="#" class="logo">
+▰ Akash Studio
+</a>
+
+<nav>
+<a href="#services">Services</a>
+<a href="#hire">Hire Services</a>
+<a href="#store">Buying Store</a>
+<a href="#reviews">Reviews</a>
+</nav>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<button class="demo-button" onclick="openDemo()">
+▶ Website Demo
+</button>
+
+<h1 id="heroTitle">
+Professional Video Editing & Scriptwriting Services
+</h1>
+
+<p id="heroSubtitle">
+Boost your YouTube Channel retention with high-converting scripts and high-quality video editing.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#hire" class="btn green">
+▣ Hire Me Now
+</a>
+
+<a
+id="youtubeButton"
+href="https://www.youtube.com/"
+target="_blank"
+class="btn red">
+
+▶ My YouTube Channel
+
+</a>
+
+<button
+class="btn blue"
+onclick="openUPI()">
+
+▦ Pay via UPI
+
+</button>
+
+<a href="#reviews" class="btn orange">
+
+★ Reviews
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<h2 class="section-title">
+My Services
+</h2>
+
+<div class="services">
+
+<div
+class="service-card"
+onclick="goToHire('Video Editing')">
+
+<div class="service-icon">
+✣
+</div>
+
+<h3>
+Video Editing
+</h3>
+
+<p id="editingDescription">
+YouTube Shorts, Reels, Long-form videos with engaging captions, motion graphics, and sound design.
+</p>
+
+</div>
+
+
+<div
+class="service-card"
+onclick="goToHire('Scriptwriting')">
+
+<div class="service-icon">
+✎
+</div>
+
+<h3>
+Scriptwriting
+</h3>
+
+<p id="scriptDescription">
+High-hook, well-researched scripts tailored for tech, gaming, storytelling, and educational YouTube channels.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- OFFER -->
+
+<div class="offer-container">
+
+<div class="offer" id="offerText">
+
+🎁 Special Offer: 2% Cashback / Refund Offer Available!
+
+</div>
+
+</div>
+
+
+<!-- STORE -->
+
+<section id="store">
+
+<h2 class="section-title">
+Buying Store (Affiliate Products)
+</h2>
+
+<div class="search-box">
+
+<input
+id="productSearch"
+type="search"
+placeholder="Search products e.g. Mic, Tripod..."
+>
+
+</div>
+
+<div
+class="products"
+id="productsContainer">
+</div>
+
+</section>
+
+
+<!-- HIRE -->
+
+<section id="hire">
+
+<h2 class="section-title">
+Video Editing & Scriptwriting Hire
+</h2>
+
+<form
+class="form-box"
+id="hireForm">
+
+<label>
+Your Name
+
+<input
+name="name"
+required
+placeholder="Enter your full name">
+
+</label>
+
+
+<label>
+Your Email
+
+<input
+name="email"
+type="email"
+required
+placeholder="example@gmail.com">
+
+</label>
+
+
+<label>
+Select Service
+
+<select name="service" id="serviceSelect">
+
+<option>
+Video Editing
+</option>
+
+<option>
+Scriptwriting
+</option>
+
+</select>
+
+</label>
+
+
+<label>
+Project Details
+
+<textarea
+name="details"
+required
+placeholder="Describe your project details...">
+</textarea>
+
+</label>
+
+
+<label>
+Drive / Reference Link
+
+<input
+name="reference"
+placeholder="https://drive.google.com/...">
+
+</label>
+
+
+<button class="btn green full-button">
+
+➤ Submit Request
+
+</button>
+
+<div
+class="status"
+id="hireStatus">
+</div>
+
+</form>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section id="reviews">
+
+<h2 class="section-title">
+Client Reviews
+</h2>
+
+<div
+class="reviews"
+id="reviewContainer">
+</div>
+
+
+<div style="margin-top:55px">
+
+<h2 class="section-title">
+Leave a Review
+</h2>
+
+<form
+class="form-box"
+id="reviewForm">
+
+<label>
+Your Name
+
+<input
+name="name"
+required
+placeholder="Enter your name">
+
+</label>
+
+
+<label>
+Rating
+
+<select name="rating">
+
+<option value="5">
+5 Stars (★★★★★)
+</option>
+
+<option value="4">
+4 Stars (★★★★)
+</option>
+
+<option value="3">
+3 Stars (★★★)
+</option>
+
+<option value="2">
+2 Stars (★★)
+</option>
+
+<option value="1">
+1 Star (★)
+</option>
+
+</select>
+
+</label>
+
+
+<label>
+Feedback / Review
+
+<textarea
+name="review"
+required
+placeholder="Write your experience...">
+</textarea>
+
+</label>
+
+
+<button class="btn green full-button">
+
+★ Submit Review
+
+</button>
+
+<div
+class="status"
+id="reviewStatus">
+</div>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- UPI -->
+
+<section>
+
+<div class="upi-box">
+
+<h2>
+Scan & Pay via UPI
+</h2>
+
+<img
+id="qrImage"
+class="upi-image"
+src="qr.png"
+alt="UPI QR"
+onclick="openUPI()"
+>
+
+<p>
+Payment screenshot भेजें:
+</p>
+
+<div class="email">
+akash.rbj2612@gmail.com
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Akash Studio
+
+</footer>
+
+
+<!-- DEMO MODAL -->
+
+<div
+class="modal"
+id="demoModal">
+
+<div class="modal-content">
+
+<button
+class="close"
+onclick="closeModal('demoModal')">
+×
+</button>
+
+<h2>
+Website Demo
+</h2>
+
+<video
+id="demoVideo"
+class="demo-video"
+controls
+playsinline>
+</video>
+
+</div>
+
+</div>
+
+
+<!-- UPI MODAL -->
+
+<div
+class="modal"
+id="upiModal">
+
+<div class="modal-content">
+
+<button
+class="close"
+onclick="closeModal('upiModal')">
+×
+</button>
+
+<h2>
+Scan & Pay via UPI
+</h2>
+
+<br>
+
+<img
+id="modalQR"
+class="modal-qr"
+src="qr.png"
+alt="UPI QR">
+
+<p style="margin-top:15px;color:#929caf">
+
+Payment screenshot भेजें:
+
+<span class="email">
+akash.rbj2612@gmail.com
+</span>
+
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+const DB_NAME = "AkashStudioDB";
+
+const DB_VERSION = 2;
+
+let db;
+
+
+/* DEFAULT SETTINGS */
+
+const defaultSettings = {
+
+offer:
+"🎁 Special Offer: 2% Cashback / Refund Offer Available!",
+
+youtube:
+"https://www.youtube.com/",
+
+heroTitle:
+"Professional Video Editing & Scriptwriting Services",
+
+heroSubtitle:
+"Boost your YouTube Channel retention with high-converting scripts and high-quality video editing.",
+
+editingDescription:
+"YouTube Shorts, Reels, Long-form videos with engaging captions, motion graphics, and sound design.",
+
+scriptDescription:
+"High-hook, well-researched scripts tailored for tech, gaming, storytelling, and educational YouTube channels."
+
+};
+
+
+/* DEFAULT PRODUCTS */
+
+const defaultProducts = [
+
+{
+title:"BOYA BY-M1 Lavalier Microphone",
+description:"Best budget mic for video creators.",
+link:"https://www.google.com/search?q=BOYA+BY-M1"
+},
+
+{
+title:"Fast Studio Tripod Stand 7 Feet",
+description:"Heavy duty light & camera tripod.",
+link:"https://www.google.com/search?q=studio+tripod"
+},
+
+{
+title:"RGB Ring Light with Stand",
+description:"Professional lighting setup for reels.",
+link:"https://www.google.com/search?q=RGB+ring+light"
+}
+
+];
+
+
+/* OPEN DATABASE */
+
+function openDatabase(){
+
+return new Promise((resolve,reject)=>{
+
+const request =
+indexedDB.open(DB_NAME,DB_VERSION);
+
+request.onupgradeneeded = function(event){
+
+const database = event.target.result;
+
+if(!database.objectStoreNames.contains("data")){
+
+database.createObjectStore("data");
+
+}
+
+if(!database.objectStoreNames.contains("products")){
+
+database.createObjectStore(
+"products",
+{
+keyPath:"id",
+autoIncrement:true
+}
+);
+
+}
+
+if(!database.objectStoreNames.contains("reviews")){
+
+database.createObjectStore(
+"reviews",
+{
+keyPath:"id",
+autoIncrement:true
+}
+);
+
+}
+
+};
+
+request.onsuccess = function(){
+
+db = request.result;
+
+resolve();
+
+};
+
+request.onerror = function(){
+
+reject(request.error);
+
+};
+
+});
+
+}
+
+
+/* GET */
+
+function getData(store,key){
+
+return new Promise((resolve,reject)=>{
+
+const request =
+db.transaction(store)
+.objectStore(store)
+.get(key);
+
+request.onsuccess = function(){
+
+resolve(request.result);
+
+};
+
+request.onerror = function(){
+
+reject(request.error);
+
+};
+
+});
+
+}
+
+
+/* PUT */
+
+function putData(store,value,key){
+
+return new Promise((resolve,reject)=>{
+
+const objectStore =
+db.transaction(store,"readwrite")
+.objectStore(store);
+
+const request =
+objectStore.put(value,key);
+
+request.onsuccess = function(){
+
+resolve();
+
+};
+
+request.onerror = function(){
+
+reject(request.error);
+
+};
+
+});
+
+}
+
+
+/* ADD */
+
+function addData(store,value){
+
+return new Promise((resolve,reject)=>{
+
+const request =
+db.transaction(store,"readwrite")
+.objectStore(store)
+.add(value);
+
+request.onsuccess = function(){
+
+resolve(request.result);
+
+};
+
+request.onerror = function(){
+
+reject(request.error);
+
+};
+
+});
+
+}
+
+
+/* GET ALL */
+
+function getAllData(store){
+
+return new Promise((resolve,reject)=>{
+
+const request =
+db.transaction(store)
+.objectStore(store)
+.getAll();
+
+request.onsuccess = function(){
+
+resolve(request.result);
+
+};
+
+request.onerror = function(){
+
+reject(request.error);
+
+};
+
+});
+
+}
+
+
+/* INITIALIZE */
+
+async function initialize(){
+
+await openDatabase();
+
+
+for(
+const [key,value]
+of Object.entries(defaultSettings)
+){
+
+const oldValue =
+await getData("data",key);
+
+if(oldValue === undefined){
+
+await putData(
+"data",
+value,
+key
+);
+
+}
+
+}
+
+
+const products =
+await getAllData("products");
+
+
+if(products.length === 0){
+
+for(
+const product
+of defaultProducts
+){
+
+await addData(
+"products",
+product
+);
+
+}
+
+}
+
+
+await loadWebsiteSettings();
+
+await renderProducts();
+
+await renderReviews();
+
+}
+
+
+/* LOAD SETTINGS */
+
+async function loadWebsiteSettings(){
+
+const offer =
+await getData("data","offer");
+
+const youtube =
+await getData("data","youtube");
+
+const heroTitle =
+await getData("data","heroTitle");
+
+const heroSubtitle =
+await getData("data","heroSubtitle");
+
+const editing =
+await getData(
+"data",
+"editingDescription"
+);
+
+const script =
+await getData(
+"data",
+"scriptDescription"
+);
+
+
+document.getElementById("offerText")
+.textContent = offer;
+
+
+document.getElementById("youtubeButton")
+.href = youtube;
+
+
+document.getElementById("heroTitle")
+.textContent = heroTitle;
+
+
+document.getElementById("heroSubtitle")
+.textContent = heroSubtitle;
+
+
+document.getElementById("editingDescription")
+.textContent = editing;
+
+
+document.getElementById("scriptDescription")
+.textContent = script;
+
+
+/* QR */
+
+const qr =
+await getData("data","qr");
+
+if(qr){
+
+const url =
+URL.createObjectURL(qr);
+
+document.getElementById("qrImage")
+.src = url;
+
+document.getElementById("modalQR")
+.src = url;
+
+}
+
+}
+
+
+/* DEMO */
+
+async function loadDemoVideo(){
+
+const video =
+await getData(
+"data",
+"demoVideo"
+);
+
+if(video){
+
+document.getElementById("demoVideo")
+.src = URL.createObjectURL(video);
+
+}else{
+
+document.getElementById("demoVideo")
+.src = "demo.mp4";
+
+}
+
+}
+
+
+/* OPEN DEMO */
+
+function openDemo(){
+
+loadDemoVideo();
+
+document
+.getElementById("demoModal")
+.classList
+.add("active");
+
+}
+
+
+/* OPEN UPI */
+
+function openUPI(){
+
+document
+.getElementById("upiModal")
+.classList
+.add("active");
+
+}
+
+
+/* CLOSE */
+
+function closeModal(id){
+
+document
+.getElementById(id)
+.classList
+.remove("active");
+
+}
+
+
+/* HIRE */
+
+function goToHire(service){
+
+document
+.getElementById("serviceSelect")
+.value = service;
+
+document
+.getElementById("hire")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+
+/* PRODUCTS */
+
+async function renderProducts(){
+
+const search =
+document
+.getElementById("productSearch")
+.value
+.toLowerCase()
+.trim();
+
+
+const allProducts =
+await getAllData("products");
+
+
+const filtered =
+allProducts.filter(product=>{
+
+return (
+
+product.title +
+" " +
+product.description
+
+)
+.toLowerCase()
+.includes(search);
+
+});
+
+
+const container =
+document.getElementById(
+"productsContainer"
+);
+
+
+container.innerHTML = "";
+
+
+if(filtered.length === 0){
+
+container.innerHTML =
+
+"<p style='color:#7e899a;text-align:center;grid-column:1/-1'>No products found.</p>";
+
+return;
+
+}
+
+
+filtered
+.reverse()
+.forEach(product=>{
+
+const card =
+document.createElement("div");
+
+card.className =
+"product-card";
+
+
+if(product.image){
+
+const img =
+document.createElement("img");
+
+img.className =
+"product-image";
+
+img.src =
+URL.createObjectURL(
+product.image
+);
+
+img.alt =
+product.title;
+
+card.appendChild(img);
+
+}else{
+
+const placeholder =
+document.createElement("div");
+
+placeholder.className =
+"product-placeholder";
+
+placeholder.textContent =
+"🛒";
+
+card.appendChild(
+placeholder
+);
+
+}
+
+
+const title =
+document.createElement("h3");
+
+title.textContent =
+product.title;
+
+
+const description =
+document.createElement("p");
+
+description.textContent =
+product.description;
+
+
+const link =
+document.createElement("a");
+
+link.className =
+"buy-button";
+
+link.href =
+product.link;
+
+link.target =
+"_blank";
+
+link.rel =
+"noopener sponsored";
+
+link.textContent =
+"🛒 Buy Now";
+
+
+card.appendChild(title);
+
+card.appendChild(description);
+
+card.appendChild(link);
+
+container.appendChild(card);
+
+});
+
+}
+
+
+/* REVIEWS */
+
+async function renderReviews(){
+
+const reviews =
+await getAllData("reviews");
+
+
+const container =
+document.getElementById(
+"reviewContainer"
+);
+
+
+container.innerHTML = "";
+
+
+if(reviews.length === 0){
+
+container.innerHTML =
+
+"<p style='color:#7e899a;text-align:center;grid-column:1/-1'>No reviews yet.</p>";
+
+return;
+
+}
+
+
+reviews
+.reverse()
+.forEach(review=>{
+
+const box =
+document.createElement("div");
+
+box.className =
+"review";
+
+
+const top =
+document.createElement("div");
+
+top.className =
+"review-top";
+
+
+const name =
+document.createElement("b");
+
+name.textContent =
+review.name;
+
+
+const stars =
+document.createElement("span");
+
+stars.className =
+"stars";
+
+stars.textContent =
+"★".repeat(
+review.rating
+);
+
+
+top.appendChild(name);
+
+top.appendChild(stars);
+
+
+const text =
+document.createElement("p");
+
+text.className =
+"review-text";
+
+text.textContent =
+review.review;
+
+
+box.appendChild(top);
+
+box.appendChild(text);
+
+container.appendChild(box);
+
+});
+
+}
+
+
+/* SEARCH */
+
+document
+.getElementById("productSearch")
+.addEventListener(
+"input",
+renderProducts
+);
+
+
+/* REVIEW FORM */
+
+document
+.getElementById("reviewForm")
+.addEventListener(
+"submit",
+async function(event){
+
+event.preventDefault();
+
+const formData =
+new FormData(
+event.target
+);
+
+
+await addData(
+"reviews",
+{
+
+name:
+formData.get("name").trim(),
+
+rating:
+Number(
+formData.get("rating")
+),
+
+review:
+formData.get("review").trim(),
+
+createdAt:
+Date.now()
+
+}
+);
+
+
+event.target.reset();
+
+
+document.getElementById(
+"reviewStatus"
+).textContent =
+"✓ Review submitted successfully.";
+
+
+await renderReviews();
+
+}
+);
+
+
+/* HIRE FORM */
+
+document
+.getElementById("hireForm")
+.addEventListener(
+"submit",
+function(event){
+
+event.preventDefault();
+
+const formData =
+new FormData(
+event.target
+);
+
+
+const name =
+formData.get("name");
+
+const email =
+formData.get("email");
+
+const service =
+formData.get("service");
+
+const details =
+formData.get("details");
+
+const reference =
+formData.get("reference");
+
+
+const body =
+
+"Name: " + name +
+
+"\nEmail: " + email +
+
+"\nService: " + service +
+
+"\n\nProject Details:\n" +
+details +
+
+"\n\nReference Link:\n" +
+(reference || "Not provided");
+
+
+document.getElementById(
+"hireStatus"
+).textContent =
+"✓ Opening email application...";
+
+
+const mailto =
+
+"mailto:akash.rbj2612@gmail.com" +
+
+"?subject=" +
+
+encodeURIComponent(
+"New Hire Request - " +
+service
+) +
+
+"&body=" +
+
+encodeURIComponent(body);
+
+
+window.location.href =
+mailto;
+
+
+setTimeout(
+function(){
+
+event.target.reset();
+
+},
+1000
+);
+
+}
+);
+
+
+/* MODAL CLICK */
+
+document
+.querySelectorAll(".modal")
+.forEach(modal=>{
+
+modal.addEventListener(
+"click",
+function(event){
+
+if(event.target === modal){
+
+closeModal(
+modal.id
+);
+
+}
+
+});
+
+});
+
+
+/* START */
+
+initialize()
+.catch(error=>{
+
+console.error(error);
+
+alert(
+"Please run this website using VS Code Live Server."
+);
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2033 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Akash Studio Admin Panel
+</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    background:#080d18;
+
+    color:white;
+
+    line-height:1.5;
+}
+
+
+/* HEADER */
+
+header{
+
+    background:#111827;
+
+    border-bottom:
+    1px solid #273246;
+
+    padding:
+    17px 5%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.logo{
+
+    color:#00ed82;
+
+    font-size:19px;
+
+    font-weight:bold;
+
+}
+
+.website-button{
+
+    background:#3439c2;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:10px 16px;
+
+    border-radius:6px;
+
+    font-size:12px;
+
+}
+
+
+/* MAIN */
+
+main{
+
+    max-width:1050px;
+
+    margin:auto;
+
+    padding:35px 20px;
+
+}
+
+h1{
+
+    font-size:29px;
+
+    margin-bottom:5px;
+
+}
+
+.subtitle{
+
+    color:#8994a7;
+
+    font-size:12px;
+
+    margin-bottom:25px;
+
+}
+
+
+/* NOTICE */
+
+.notice{
+
+    background:#063228;
+
+    border:
+    1px solid #09815f;
+
+    color:#00e982;
+
+    padding:14px;
+
+    border-radius:7px;
+
+    font-size:11px;
+
+    margin-bottom:22px;
+
+}
+
+
+/* BOX */
+
+.box{
+
+    background:#111723;
+
+    border:
+    1px solid #273246;
+
+    border-radius:9px;
+
+    padding:22px;
+
+    margin-bottom:22px;
+
+}
+
+.box h2{
+
+    font-size:19px;
+
+    margin-bottom:18px;
+
+}
+
+
+/* INPUT */
+
+label{
+
+    display:block;
+
+    color:#c9ced8;
+
+    font-size:11px;
+
+    margin-bottom:15px;
+
+}
+
+input,
+textarea,
+select{
+
+    display:block;
+
+    width:100%;
+
+    margin-top:6px;
+
+    background:#121a29;
+
+    color:white;
+
+    border:
+    1px solid #2a3548;
+
+    border-radius:6px;
+
+    padding:11px;
+
+    outline:none;
+
+}
+
+textarea{
+
+    min-height:95px;
+
+    resize:vertical;
+
+}
+
+
+/* GRID */
+
+.two-column{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:15px;
+
+}
+
+
+/* BUTTONS */
+
+button{
+
+    border:0;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    border-radius:5px;
+
+    padding:10px 17px;
+
+}
+
+.green{
+
+    background:#00e982;
+
+    color:#001a0d;
+
+}
+
+.red{
+
+    background:#ef0710;
+
+    color:white;
+
+}
+
+.blue{
+
+    background:#3439c2;
+
+    color:white;
+
+}
+
+
+/* ROW */
+
+.button-row{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+    margin-top:12px;
+
+}
+
+
+/* STATUS */
+
+.status{
+
+    color:#00e982;
+
+    font-size:11px;
+
+    margin-left:10px;
+
+}
+
+
+/* SMALL */
+
+.small{
+
+    color:#8994a7;
+
+    font-size:11px;
+
+    margin-bottom:12px;
+
+}
+
+
+/* VIDEO */
+
+.preview-video{
+
+    width:100%;
+
+    max-width:650px;
+
+    background:black;
+
+    border-radius:7px;
+
+    display:block;
+
+    margin:
+    10px 0 15px;
+
+}
+
+
+/* QR */
+
+.qr-preview{
+
+    width:180px;
+
+    height:180px;
+
+    object-fit:contain;
+
+    background:white;
+
+    padding:10px;
+
+    border-radius:7px;
+
+    display:block;
+
+    margin:
+    10px 0 15px;
+
+}
+
+
+/* ITEM */
+
+.item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    background:#0c1320;
+
+    border:
+    1px solid #202b3d;
+
+    padding:14px;
+
+    border-radius:7px;
+
+    margin-top:10px;
+
+}
+
+.item-info{
+
+    flex:1;
+
+}
+
+.item h3{
+
+    font-size:13px;
+
+    margin-bottom:4px;
+
+}
+
+.item p{
+
+    color:#8792a5;
+
+    font-size:10px;
+
+}
+
+.item small{
+
+    color:#687386;
+
+    font-size:9px;
+
+    overflow-wrap:anywhere;
+
+}
+
+.thumbnail{
+
+    width:80px;
+
+    height:65px;
+
+    object-fit:cover;
+
+    border-radius:5px;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    .two-column{
+
+        grid-template-columns:1fr;
+
+    }
+
+    header{
+
+        gap:10px;
+
+        flex-wrap:wrap;
+
+    }
+
+    main{
+
+        padding:
+        25px 12px;
+
+    }
+
+    .box{
+
+        padding:16px;
+
+    }
+
+    .item{
+
+        align-items:flex-start;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">
+
+▰ Akash Studio — Admin Panel
+
+</div>
+
+<a
+href="index.html"
+target="_blank"
+class="website-button">
+
+View Website
+
+</a>
+
+</header>
+
+
+<main>
+
+
+<h1>
+Website Control Panel
+</h1>
+
+<p class="subtitle">
+
+यहां से आप अपनी website के content, demo video,
+UPI QR, products और reviews manage कर सकते हैं।
+
+</p>
+
+
+<div class="notice">
+
+⚠️ Important:
+यह HTML version browser के IndexedDB में data save करता है।
+इसलिए changes उसी browser/device में दिखाई देंगे।
+सभी visitors के लिए online/global changes चाहिए तो Firebase,
+Supabase या backend लगाना होगा।
+
+</div>
+
+
+<!-- SETTINGS -->
+
+<section class="box">
+
+<h2>
+⚙ Website Settings
+</h2>
+
+
+<label>
+
+Special Offer Banner
+
+<input
+id="offer"
+placeholder="Special Offer">
+
+</label>
+
+
+<label>
+
+YouTube Channel URL
+
+<input
+id="youtube"
+placeholder="https://www.youtube.com/@YourChannel">
+
+</label>
+
+
+<label>
+
+Hero Title
+
+<input
+id="heroTitle">
+
+</label>
+
+
+<label>
+
+Hero Subtitle
+
+<textarea
+id="heroSubtitle">
+</textarea>
+
+</label>
+
+
+<label>
+
+Video Editing Description
+
+<textarea
+id="editingDescription">
+</textarea>
+
+</label>
+
+
+<label>
+
+Scriptwriting Description
+
+<textarea
+id="scriptDescription">
+</textarea>
+
+</label>
+
+
+<button
+class="green"
+onclick="saveSettings()">
+
+💾 Save Website Settings
+
+</button>
+
+
+<span
+class="status"
+id="settingsStatus">
+</span>
+
+</section>
+
+
+<!-- DEMO VIDEO -->
+
+<section class="box">
+
+<h2>
+🎬 Website Demo Video
+</h2>
+
+<p class="small">
+
+यहां से website का demo video कभी भी बदल सकते हैं।
+
+</p>
+
+
+<video
+id="demoPreview"
+class="preview-video"
+controls>
+</video>
+
+
+<input
+id="demoFile"
+type="file"
+accept="video/mp4,video/webm,video/quicktime">
+
+
+<div class="button-row">
+
+<button
+class="green"
+onclick="replaceDemoVideo()">
+
+🎬 Replace Demo Video
+
+</button>
+
+
+<button
+class="red"
+onclick="resetDemoVideo()">
+
+↩ Use demo.mp4
+
+</button>
+
+</div>
+
+
+<span
+class="status"
+id="demoStatus">
+</span>
+
+</section>
+
+
+<!-- QR -->
+
+<section class="box">
+
+<h2>
+💳 UPI QR
+</h2>
+
+
+<p class="small">
+
+अपना नया QR image यहां से upload कर सकते हैं।
+
+</p>
+
+
+<img
+id="qrPreview"
+class="qr-preview"
+src="qr.png">
+
+
+<input
+id="qrFile"
+type="file"
+accept="image/png,image/jpeg,image/webp">
+
+
+<div class="button-row">
+
+<button
+class="green"
+onclick="replaceQR()">
+
+💳 Replace QR
+
+</button>
+
+
+<button
+class="red"
+onclick="resetQR()">
+
+↩ Use qr.png
+
+</button>
+
+</div>
+
+
+<span
+class="status"
+id="qrStatus">
+</span>
+
+</section>
+
+
+<!-- ADD PRODUCT -->
+
+<section class="box">
+
+<h2>
+🛒 Add Affiliate Product
+</h2>
+
+
+<div class="two-column">
+
+
+<label>
+
+Product Title
+
+<input
+id="productTitle"
+placeholder="Product name">
+
+</label>
+
+
+<label>
+
+Affiliate Link
+
+<input
+id="productLink"
+placeholder="https://...">
+
+</label>
+
+</div>
+
+
+<label>
+
+Product Description
+
+<textarea
+id="productDescription"
+placeholder="Product description">
+</textarea>
+
+</label>
+
+
+<label>
+
+Product Photo
+
+<input
+id="productImage"
+type="file"
+accept="image/*">
+
+</label>
+
+
+<button
+class="green"
+onclick="addProduct()">
+
++ Add Product
+
+</button>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="box">
+
+<h2>
+📦 Manage Products
+</h2>
+
+
+<div id="productList">
+
+</div>
+
+</section>
+
+
+<!-- ADD REVIEW -->
+
+<section class="box">
+
+<h2>
+⭐ Add Client Review
+</h2>
+
+
+<div class="two-column">
+
+
+<label>
+
+Client Name
+
+<input
+id="reviewName"
+placeholder="Client name">
+
+</label>
+
+
+<label>
+
+Rating
+
+<select id="reviewRating">
+
+<option value="5">
+5 Stars (★★★★★)
+</option>
+
+<option value="4">
+4 Stars (★★★★)
+</option>
+
+<option value="3">
+3 Stars (★★★)
+</option>
+
+<option value="2">
+2 Stars (★★)
+</option>
+
+<option value="1">
+1 Star (★)
+</option>
+
+</select>
+
+</label>
+
+</div>
+
+
+<label>
+
+Review
+
+<textarea
+id="reviewText"
+placeholder="Client review">
+</textarea>
+
+</label>
+
+
+<button
+class="green"
+onclick="addReview()">
+
++ Add Review
+
+</button>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section class="box">
+
+<h2>
+💬 Manage Client Reviews
+</h2>
+
+
+<div id="reviewList">
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<script>
+
+
+const DB_NAME =
+"AkashStudioDB";
+
+const DB_VERSION = 2;
+
+let db;
+
+
+/* DEFAULT */
+
+const defaultSettings = {
+
+offer:
+"🎁 Special Offer: 2% Cashback / Refund Offer Available!",
+
+youtube:
+"https://www.youtube.com/",
+
+heroTitle:
+"Professional Video Editing & Scriptwriting Services",
+
+heroSubtitle:
+"Boost your YouTube Channel retention with high-converting scripts and high-quality video editing.",
+
+editingDescription:
+"YouTube Shorts, Reels, Long-form videos with engaging captions, motion graphics, and sound design.",
+
+scriptDescription:
+"High-hook, well-researched scripts tailored for tech, gaming, storytelling, and educational YouTube channels."
+
+};
+
+
+/* DATABASE */
+
+function openDatabase(){
+
+return new Promise(
+(resolve,reject)=>{
+
+const request =
+indexedDB.open(
+DB_NAME,
+DB_VERSION
+);
+
+
+request.onupgradeneeded =
+function(event){
+
+const database =
+event.target.result;
+
+
+if(
+!database.objectStoreNames
+.contains("data")
+){
+
+database.createObjectStore(
+"data"
+);
+
+}
+
+
+if(
+!database.objectStoreNames
+.contains("products")
+){
+
+database.createObjectStore(
+"products",
+{
+keyPath:"id",
+autoIncrement:true
+}
+);
+
+}
+
+
+if(
+!database.objectStoreNames
+.contains("reviews")
+){
+
+database.createObjectStore(
+"reviews",
+{
+keyPath:"id",
+autoIncrement:true
+}
+);
+
+}
+
+};
+
+
+request.onsuccess =
+function(){
+
+db =
+request.result;
+
+resolve();
+
+};
+
+
+request.onerror =
+function(){
+
+reject(
+request.error
+);
+
+};
+
+});
+
+}
+
+
+/* GET */
+
+function getData(
+store,
+key
+){
+
+return new Promise(
+(resolve,reject)=>{
+
+const request =
+db.transaction(store)
+.objectStore(store)
+.get(key);
+
+
+request.onsuccess =
+function(){
+
+resolve(
+request.result
+);
+
+};
+
+
+request.onerror =
+function(){
+
+reject(
+request.error
+);
+
+};
+
+});
+
+}
+
+
+/* PUT */
+
+function putData(
+store,
+value,
+key
+){
+
+return new Promise(
+(resolve,reject)=>{
+
+const objectStore =
+db.transaction(
+store,
+"readwrite"
+)
+.objectStore(store);
+
+
+const request =
+objectStore.put(
+value,
+key
+);
+
+
+request.onsuccess =
+function(){
+
+resolve();
+
+};
+
+
+request.onerror =
+function(){
+
+reject(
+request.error
+);
+
+};
+
+});
+
+}
+
+
+/* ADD */
+
+function addData(
+store,
+value
+){
+
+return new Promise(
+(resolve,reject)=>{
+
+const request =
+db.transaction(
+store,
+"readwrite"
+)
+.objectStore(store)
+.add(value);
+
+
+request.onsuccess =
+function(){
+
+resolve(
+request.result
+);
+
+};
+
+
+request.onerror =
+function(){
+
+reject(
+request.error
+);
+
+};
+
+});
+
+}
+
+
+/* ALL */
+
+function getAllData(
+store
+){
+
+return new Promise(
+(resolve,reject)=>{
+
+const request =
+db.transaction(store)
+.objectStore(store)
+.getAll();
+
+
+request.onsuccess =
+function(){
+
+resolve(
+request.result
+);
+
+};
+
+
+request.onerror =
+function(){
+
+reject(
+request.error
+);
+
+};
+
+});
+
+}
+
+
+/* DELETE */
+
+function deleteData(
+store,
+id
+){
+
+return new Promise(
+(resolve,reject)=>{
+
+const request =
+db.transaction(
+store,
+"readwrite"
+)
+.objectStore(store)
+.delete(id);
+
+
+request.onsuccess =
+function(){
+
+resolve();
+
+};
+
+
+request.onerror =
+function(){
+
+reject(
+request.error
+);
+
+};
+
+});
+
+}
+
+
+/* INITIALIZE */
+
+async function initialize(){
+
+await openDatabase();
+
+
+for(
+const [key,value]
+of Object.entries(
+defaultSettings
+)){
+
+const oldValue =
+await getData(
+"data",
+key
+);
+
+
+if(
+oldValue === undefined
+){
+
+await putData(
+"data",
+value,
+key
+);
+
+}
+
+}
+
+
+await loadSettings();
+
+await previewDemo();
+
+await previewQR();
+
+await renderProducts();
+
+await renderReviews();
+
+}
+
+
+/* SETTINGS */
+
+async function loadSettings(){
+
+for(
+const key
+of Object.keys(
+defaultSettings
+)){
+
+document.getElementById(
+key
+).value =
+await getData(
+"data",
+key
+);
+
+}
+
+}
+
+
+/* SAVE SETTINGS */
+
+async function saveSettings(){
+
+for(
+const key
+of Object.keys(
+defaultSettings
+)){
+
+const value =
+document.getElementById(
+key
+).value.trim();
+
+
+await putData(
+"data",
+value,
+key
+);
+
+}
+
+
+document.getElementById(
+"settingsStatus"
+).textContent =
+"✓ Website settings saved.";
+
+}
+
+
+/* DEMO PREVIEW */
+
+async function previewDemo(){
+
+const video =
+await getData(
+"data",
+"demoVideo"
+);
+
+
+if(video){
+
+document.getElementById(
+"demoPreview"
+).src =
+URL.createObjectURL(
+video
+);
+
+}else{
+
+document.getElementById(
+"demoPreview"
+).src =
+"demo.mp4";
+
+}
+
+}
+
+
+/* REPLACE VIDEO */
+
+async function replaceDemoVideo(){
+
+const file =
+document.getElementById(
+"demoFile"
+).files[0];
+
+
+if(!file){
+
+alert(
+"Please select a video first."
+);
+
+return;
+
+}
+
+
+if(
+file.size >
+250 * 1024 * 1024
+){
+
+alert(
+"Video should be smaller than 250 MB."
+);
+
+return;
+
+}
+
+
+await putData(
+"data",
+file,
+"demoVideo"
+);
+
+
+await previewDemo();
+
+
+document.getElementById(
+"demoStatus"
+).textContent =
+"✓ Demo video replaced successfully.";
+
+}
+
+
+/* RESET VIDEO */
+
+async function resetDemoVideo(){
+
+await deleteData(
+"data",
+"demoVideo"
+);
+
+
+await previewDemo();
+
+
+document.getElementById(
+"demoStatus"
+).textContent =
+"✓ Website is using demo.mp4.";
+
+}
+
+
+/* QR PREVIEW */
+
+async function previewQR(){
+
+const qr =
+await getData(
+"data",
+"qr"
+);
+
+
+if(qr){
+
+document.getElementById(
+"qrPreview"
+).src =
+URL.createObjectURL(
+qr
+);
+
+}else{
+
+document.getElementById(
+"qrPreview"
+).src =
+"qr.png";
+
+}
+
+}
+
+
+/* REPLACE QR */
+
+async function replaceQR(){
+
+const file =
+document.getElementById(
+"qrFile"
+).files[0];
+
+
+if(!file){
+
+alert(
+"Please select QR image."
+);
+
+return;
+
+}
+
+
+await putData(
+"data",
+file,
+"qr"
+);
+
+
+await previewQR();
+
+
+document.getElementById(
+"qrStatus"
+).textContent =
+"✓ QR replaced successfully.";
+
+}
+
+
+/* RESET QR */
+
+async function resetQR(){
+
+await deleteData(
+"data",
+"qr"
+);
+
+
+await previewQR();
+
+
+document.getElementById(
+"qrStatus"
+).textContent =
+"✓ Website is using qr.png.";
+
+}
+
+
+/* ADD PRODUCT */
+
+async function addProduct(){
+
+const title =
+document.getElementById(
+"productTitle"
+).value.trim();
+
+
+const description =
+document.getElementById(
+"productDescription"
+).value.trim();
+
+
+const link =
+document.getElementById(
+"productLink"
+).value.trim();
+
+
+const image =
+document.getElementById(
+"productImage"
+).files[0] || null;
+
+
+if(
+!title ||
+!description ||
+!link
+){
+
+alert(
+"Title, description and affiliate link are required."
+);
+
+return;
+
+}
+
+
+await addData(
+"products",
+{
+
+title:title,
+
+description:description,
+
+link:link,
+
+image:image,
+
+createdAt:Date.now()
+
+}
+);
+
+
+document.getElementById(
+"productTitle"
+).value = "";
+
+
+document.getElementById(
+"productDescription"
+).value = "";
+
+
+document.getElementById(
+"productLink"
+).value = "";
+
+
+document.getElementById(
+"productImage"
+).value = "";
+
+
+await renderProducts();
+
+
+alert(
+"Product added successfully."
+);
+
+}
+
+
+/* PRODUCTS LIST */
+
+async function renderProducts(){
+
+const products =
+await getAllData(
+"products"
+);
+
+
+const container =
+document.getElementById(
+"productList"
+);
+
+
+container.innerHTML = "";
+
+
+if(
+products.length === 0
+){
+
+container.innerHTML =
+"<p class='small'>No products added.</p>";
+
+return;
+
+}
+
+
+products
+.reverse()
+.forEach(product=>{
+
+const item =
+document.createElement(
+"div"
+);
+
+item.className =
+"item";
+
+
+if(product.image){
+
+const img =
+document.createElement(
+"img"
+);
+
+img.className =
+"thumbnail";
+
+img.src =
+URL.createObjectURL(
+product.image
+);
+
+item.appendChild(
+img
+);
+
+}
+
+
+const info =
+document.createElement(
+"div"
+);
+
+info.className =
+"item-info";
+
+
+const title =
+document.createElement(
+"h3"
+);
+
+title.textContent =
+product.title;
+
+
+const description =
+document.createElement(
+"p"
+);
+
+description.textContent =
+product.description;
+
+
+const link =
+document.createElement(
+"small"
+);
+
+link.textContent =
+product.link;
+
+
+info.appendChild(
+title
+);
+
+info.appendChild(
+description
+);
+
+info.appendChild(
+link
+);
+
+
+const deleteButton =
+document.createElement(
+"button"
+);
+
+deleteButton.className =
+"red";
+
+deleteButton.textContent =
+"Delete";
+
+
+deleteButton.onclick =
+async function(){
+
+if(
+confirm(
+"Delete this product?"
+)
+){
+
+await deleteData(
+"products",
+product.id
+);
+
+await renderProducts();
+
+}
+
+};
+
+
+item.appendChild(
+info
+);
+
+item.appendChild(
+deleteButton
+);
+
+
+container.appendChild(
+item
+);
+
+});
+
+}
+
+
+/* ADD REVIEW */
+
+async function addReview(){
+
+const name =
+document.getElementById(
+"reviewName"
+).value.trim();
+
+
+const rating =
+Number(
+document.getElementById(
+"reviewRating"
+).value
+);
+
+
+const review =
+document.getElementById(
+"reviewText"
+).value.trim();
+
+
+if(
+!name ||
+!review
+){
+
+alert(
+"Name and review are required."
+);
+
+return;
+
+}
+
+
+await addData(
+"reviews",
+{
+
+name:name,
+
+rating:rating,
+
+review:review,
+
+createdAt:Date.now()
+
+}
+);
+
+
+document.getElementById(
+"reviewName"
+).value = "";
+
+
+document.getElementById(
+"reviewText"
+).value = "";
+
+
+await renderReviews();
+
+
+alert(
+"Review added successfully."
+);
+
+}
+
+
+/* REVIEWS */
+
+async function renderReviews(){
+
+const reviews =
+await getAllData(
+"reviews"
+);
+
+
+const container =
+document.getElementById(
+"reviewList"
+);
+
+
+container.innerHTML = "";
+
+
+if(
+reviews.length === 0
+){
+
+container.innerHTML =
+"<p class='small'>No reviews available.</p>";
+
+return;
+
+}
+
+
+reviews
+.reverse()
+.forEach(review=>{
+
+const item =
+document.createElement(
+"div"
+);
+
+item.className =
+"item";
+
+
+const info =
+document.createElement(
+"div"
+);
+
+info.className =
+"item-info";
+
+
+const title =
+document.createElement(
+"h3"
+);
+
+title.textContent =
+review.name +
+" — " +
+"★".repeat(
+review.rating
+);
+
+
+const text =
+document.createElement(
+"p"
+);
+
+text.textContent =
+review.review;
+
+
+info.appendChild(
+title
+);
+
+info.appendChild(
+text
+);
+
+
+const deleteButton =
+document.createElement(
+"button"
+);
+
+deleteButton.className =
+"red";
+
+deleteButton.textContent =
+"Delete";
+
+
+deleteButton.onclick =
+async function(){
+
+if(
+confirm(
+"Delete this review?"
+)
+){
+
+await deleteData(
+"reviews",
+review.id
+);
+
+await renderReviews();
+
+}
+
+};
+
+
+item.appendChild(
+info
+);
+
+item.appendChild(
+deleteButton
+);
+
+
+container.appendChild(
+item
+);
+
+});
+
+}
+
+
+/* START */
+
+initialize()
+.catch(
+error=>{
+
+console.error(
+error
+);
+
+alert(
+"Please run the website using VS Code Live Server."
+);
+
+});
+
+</script>
+
+</body>
+
+</html>
